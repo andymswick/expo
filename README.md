@@ -15,7 +15,6 @@ For more information on how to set up push notifications from within your Expo a
 ## Contents
 
 - [Installation](#installation)
-	- [Setting up the Expo service](#setting-up-the-expo-service)
 - [Usage](#usage)
 	- [Available Message methods](#available-message-methods)
 - [Changelog](#changelog)
