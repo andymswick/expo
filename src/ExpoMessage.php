@@ -9,28 +9,28 @@ class ExpoMessage
      *
      * @var string
      */
-    protected $to;
+    public $to;
 
     /**
      * The message title.
      *
      * @var string
      */
-    protected $title;
+    public $title;
 
     /**
      * The message body.
      *
      * @var string
      */
-    protected $body;
+    public $body;
 
     /**
      * The sound to play when the recipient receives this notification.
      *
      * @var string|null
      */
-    protected $sound = 'default';
+    public $sound = 'default';
 
     /**
      * The number to display next to the push notification (iOS).
@@ -38,28 +38,28 @@ class ExpoMessage
      *
      * @var int
      */
-    protected $badge = 0;
+    public $badge = 0;
 
     /**
      * The number of seconds for which the message may be kept around for redelivery if it has not been delivered yet.
      *
      * @var int
      */
-    protected $ttl = 0;
+    public $ttl = 0;
 
     /**
      * ID of the Notification Channel through which to display this notification on Android devices.
      *
      * @var string
      */
-    protected $channelId = '';
+    public $channelId = '';
 
     /**
      * The json data attached to the message.
      *
      * @var string
      */
-    protected $jsonData = '{}';
+    public $jsonData = '{}';
 
     /**
      * Create a message with given body.
