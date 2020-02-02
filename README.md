@@ -1,12 +1,12 @@
 # Expo notification channel for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/expo.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/expo)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/andymswick/expo.svg?style=flat-square)](https://packagist.org/packages/andymswick/expo)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/laravel-notification-channels/expo/master.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/expo)
 [![StyleCI](https://styleci.io/repos/237816489/shield)](https://styleci.io/repos/237725707)
-[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/expo.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/expo)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/expo/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/expo/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/expo.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/expo)
+[![Quality Score](https://img.shields.io/scrutinizer/g/andymswick/expo.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/expo)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/andymswick/expo/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/expo/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/andymswick/expo.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/expo)
 
 This package makes it easy to send push notifications to your [Expo](https://docs.expo.io/versions/latest/guides/push-notifications/) app with Laravel 5.5+ and 6.0.
 
