@@ -8,10 +8,9 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/expo/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/expo/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/expo.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/expo)
 
-This package makes it easy to send notifications using [Expo](link to service) with Laravel 5.5+ and 6.0
+This package makes it easy to send push notifications to your [Expo](https://docs.expo.io/versions/latest/guides/push-notifications/) app with Laravel 5.5+ and 6.0.
 
-This is where your description should go. Add a little code example so build can understand real quick how the package can be used. Try and limit it to a paragraph or two.
-
+For more information on how to set up push notifications from within your Expo app, please refer to their [documentation on push notifications](https://docs.expo.io/versions/latest/guides/push-notifications/).
 
 ## Contents
 
@@ -26,15 +25,6 @@ This is where your description should go. Add a little code example so build can
 - [Credits](#credits)
 - [License](#license)
 
-
-## Installation
-
-Please also include the steps for any third-party service setup that's required for this package.
-
-### Setting up the Expo service
-
-Optionally include a few steps how users can set up the service.
-
 ## Installation
 
 You can install this package via composer using this command:
@@ -45,7 +35,7 @@ composer require "laravel-notification-channels/expo"
 
 The package will automatically register itself.
 
-You can publish the migration with:
+You can publish the optional migration with:
 
 ```bash
 php artisan vendor:publish --provider="NotificationChannels\Expo\ExpoServiceProvider" --tag="migrations"
@@ -57,7 +47,7 @@ After the migration has been published you can add the `push_token` the users ta
 php artisan migrate
 ```
 
-You can publish the config-file with:
+You can publish the optional config-file with:
 
 ```bash
 php artisan vendor:publish --provider="NotificationChannels\Expo\ExpoServiceProvider" --tag="config"
@@ -78,7 +68,7 @@ return [
 
 ## Usage
 
-If a notification supports being sent as a Expo push notification, you should define a toExpo method on the notification class. This method will receive a $notifiable entity and should return a NotificationChannels\Expo\ExpoMessage instance. Expo messages may contain a title and body as well as "jsonData" that adds additional data that is sent to the Expo app. Let's take a look at a basic toExpo example:
+If a notification supports being sent as a Expo push notification, you should define a `toExpo` method on the notification class. This method will receive a `$notifiable` entity and should return a `NotificationChannels\Expo\ExpoMessage` instance. Expo messages may contain a title and body as well as "jsonData" that adds additional data that is sent to the Expo app. Let's take a look at a basic `toExpo` example:
 
 ```php
 // ...
@@ -105,7 +95,9 @@ class CheckInTime extends Notification
 }
 ```
 
-A `to` method is required if the notifiable does not have a `token` value set in `config/expo.php`. You can publish this config as well as a migration that will add a `push_token` to the `users` table after `remember_token`. Below is an example of using the `to` method.
+A `to` method is required if the notifiable does not have a `token` value set in `config/expo.php`. You can optionally publish this config as well as a migration that will add a `push_token` to the `users` table after `remember_token`. 
+
+Below is an example of using the `to` method, if you would rather not use the config or migration.
 
 ```php
 // ...
