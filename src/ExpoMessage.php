@@ -78,7 +78,7 @@ class ExpoMessage
      *
      * @param string $body
      */
-    public function __construct(string $to = '', string $title =  '', string $body = '')
+    public function __construct(string $to = '', string $title = '', string $body = '')
     {
         $this->to = $to;
         $this->title = $title;
