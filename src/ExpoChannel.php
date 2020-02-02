@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Expo;
 
-use NotificationChannels\Expo\Exceptions\CouldNotSendNotification;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\Expo\Exceptions\CouldNotSendNotification;
 
 class ExpoChannel
 {
