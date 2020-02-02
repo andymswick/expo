@@ -2,6 +2,8 @@
 
 namespace NotificationChannels\Expo;
 
+use NotificationChannels\Expo\Exceptions\CouldNotSendNotification;
+
 class ExpoMessage
 {
     /**
@@ -210,7 +212,7 @@ class ExpoMessage
             @json_decode($data);
 
             if (json_last_error() !== JSON_ERROR_NONE) {
-                // throw new CouldNotCreateMessage('Invalid json format passed to the setJsonData().');
+                throw new CouldNotSendNotification('Invalid json format passed to the setJsonData().');
             }
         }
 
@@ -236,7 +238,7 @@ class ExpoMessage
             'data' => $this->jsonData,
         ];
 
-        if (!empty($this->channelId)) {
+        if (! empty($this->channelId)) {
             $message['channelId'] = $this->channelId;
         }
 
