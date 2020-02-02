@@ -11,23 +11,15 @@ class ExpoServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Bootstrap code here.
+        $this->publishes([
+            __DIR__ . '/../config/expo.php' => config_path('expo.php'),
+        ], 'config');
 
-        /**
-         * Here's some example code we use for the pusher package.
-         *
-         * $this->app->when(Channel::class)
-         * ->needs(Pusher::class)
-         * ->give(function () {
-         * $pusherConfig = config('broadcasting.connections.pusher');
-         *
-         * return new Pusher(
-         * $pusherConfig['key'],
-         * $pusherConfig['secret'],
-         * $pusherConfig['app_id']
-         * );
-         * });
-         */
+        if (!class_exists('AddPushTokenToUsersTable')) {
+            $this->publishes([
+                __DIR__ . '/../database/migrations/add_push_token_to_users_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_add_push_token_to_users_table.php'),
+            ], 'migrations');
+        }
     }
 
     /**
@@ -35,5 +27,6 @@ class ExpoServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__ . '/../config/expo.php', 'expo');
     }
 }

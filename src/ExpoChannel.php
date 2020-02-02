@@ -39,6 +39,15 @@ class ExpoChannel
     {
         $message = $notification->toExpo($notifiable);
 
+        if ($message->to === '' || $message->to === null) {
+            $tokenAttribute = config('expo.token', 'push_token');
+            $message->to = $notifiable->$tokenAttribute;
+
+            if ($message->to === '' || $message->to === null) {
+                throw CouldNotSendNotification::messageDoesNotHaveRecipient();
+            }
+        }
+
         try {
             return $this->http->post('https://exp.host/--/api/v2/push/send', ['json' => $message->toArray()]);
         } catch (RequestException $e) {

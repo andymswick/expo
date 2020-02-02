@@ -35,6 +35,47 @@ Please also include the steps for any third-party service setup that's required 
 
 Optionally include a few steps how users can set up the service.
 
+## Installation
+
+You can install this package via composer using this command:
+
+```bash
+composer require "laravel-notification-channels/expo"
+```
+
+The package will automatically register itself.
+
+You can publish the migration with:
+
+```bash
+php artisan vendor:publish --provider="NotificationChannels\Expo\ExpoServiceProvider" --tag="migrations"
+```
+
+After the migration has been published you can add the `push_token` the users table by running the migrations:
+
+```bash
+php artisan migrate
+```
+
+You can publish the config-file with:
+
+```bash
+php artisan vendor:publish --provider="NotificationChannels\Expo\ExpoServiceProvider" --tag="config"
+```
+
+This is the contents of the published config file:
+
+```php
+return [
+
+    /*
+     * The attribute on the notifiable that will be accessed by default for the `to` method.
+     */
+    'token' => env('EXPO_PUSH_TOKEN', 'push_token'),
+
+];
+```
+
 ## Usage
 
 Some code examples, make it clear how to use the package
