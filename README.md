@@ -78,11 +78,73 @@ return [
 
 ## Usage
 
-Some code examples, make it clear how to use the package
+If a notification supports being sent as a Expo push notification, you should define a toExpo method on the notification class. This method will receive a $notifiable entity and should return a NotificationChannels\Expo\ExpoMessage instance. Expo messages may contain a title and body as well as "jsonData" that adds additional data that is sent to the Expo app. Let's take a look at a basic toExpo example:
+
+```php
+// ...
+use NotificationChannels\Expo\ExpoChannel;
+use NotificationChannels\Expo\ExpoMessage;
+
+class CheckInTime extends Notification
+{
+
+	// ...
+
+    public function via($notifiable)
+    {
+        return [ExpoChannel::class];
+    }
+
+    public function toExpo($notifiable)
+    {
+        return (new ExpoMessage)
+            ->title("It's time to check in!")
+            ->body('Check in now for us to print your name badge')
+            ->setJsonData(['screen' => 'CheckIn']);
+    }
+}
+```
+
+A `to` method is required if the notifiable does not have a `token` value set in `config/expo.php`. You can publish this config as well as a migration that will add a `push_token` to the `users` table after `remember_token`. Below is an example of using the `to` method.
+
+```php
+// ...
+use NotificationChannels\Expo\ExpoChannel;
+use NotificationChannels\Expo\ExpoMessage;
+
+class CheckInTime extends Notification
+{
+
+	// ...
+
+    public function via($notifiable)
+    {
+        return [ExpoChannel::class];
+    }
+
+    public function toExpo($notifiable)
+    {
+		return (new ExpoMessage)
+			->to('ExponentPushToken[**********************]')
+            ->title("It's time to check in!")
+            ->body('Check in now for us to print your name badge')
+            ->setJsonData(['screen' => 'CheckIn']);
+    }
+}
+```
 
 ### Available Message methods
 
-A list of all available options
+* `to(string)`: Set the recipient of the message. This will default to the notifiable's `push_token` attribute.
+* `title(string)`: Set the title of the message.
+* `body(string)`: Set the body of the message.
+* `enableSound()`: Enable the default sound to be played.
+* `disableSound()`: Disable the default sound to be played.
+* `badge(int)`: Set the badge to the int value. (iOS only)
+* `setTtl(int)`: Set the time to live value. (iOS only)
+* `setChanelId(int)`: Set the chanelId of the notification. (Android only)
+* `setJsonData(array|string)`: Set the extra data of the notification, can be passed an array or a json string.
+* `toArray()`: Converts the message to an array.
 
 ## Changelog
 
