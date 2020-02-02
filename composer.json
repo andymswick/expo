@@ -1,7 +1,7 @@
 {
-    "name": "laravel-notification-channels/expo",
+    "name": "andymswick/expo",
     "description": "Laravel notification driver for Expo Push Notifications.",
-    "homepage": "https://github.com/laravel-notification-channels/expo",
+    "homepage": "https://github.com/andymswick/expo",
     "license": "MIT",
     "authors": [
         {
