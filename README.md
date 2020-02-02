@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/expo.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/expo)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/laravel-notification-channels/expo/master.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/expo)
-[![StyleCI](https://styleci.io/repos/237725707/shield)](https://styleci.io/repos/237725707)
+[![StyleCI](https://styleci.io/repos/237816489/shield)](https://styleci.io/repos/237725707)
 [![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/expo.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/expo)
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/expo/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/expo/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/expo.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/expo)
