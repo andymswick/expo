@@ -1,13 +1,13 @@
 {
-    "name": "laravel-notification-channels/:package_name",
-    "description": ":package_description",
-    "homepage": "https://github.com/laravel-notification-channels/:package_name",
+    "name": "laravel-notification-channels/expo",
+    "description": "Laravel notification driver for Expo Push Notifications.",
+    "homepage": "https://github.com/laravel-notification-channels/expo",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Andy Swick",
+            "email": "andymswick@gmail.com",
+            "homepage": "https://andymswick.com",
             "role": "Developer"
         }
     ],
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\": "src"
+            "NotificationChannels\\Expo\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\Test\\": "tests"
+            "NotificationChannels\\Expo\\Test\\": "tests"
         }
     },
     "scripts": {
