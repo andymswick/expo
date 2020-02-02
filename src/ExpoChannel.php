@@ -2,14 +2,29 @@
 
 namespace NotificationChannels\Expo;
 
+use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Expo\Exceptions\CouldNotSendNotification;
 
 class ExpoChannel
 {
-    public function __construct()
+    /**
+     * The HTTP client instance.
+     *
+     * @var \GuzzleHttp\Client
+     */
+    protected $http;
+
+    /**
+     * Create a new Slack channel instance.
+     *
+     * @param  \GuzzleHttp\Client  $http
+     * @return void
+     */
+    public function __construct(HttpClient $http)
     {
-        // Initialisation code here
+        $this->http = $http;
     }
 
     /**
@@ -22,10 +37,12 @@ class ExpoChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        //$response = [a call to the api of your notification send]
+        $message = $notification->toExpo($notifiable);
 
-        //        if ($response->error) { // replace this by the code need to check for errors
-        //            throw CouldNotSendNotification::serviceRespondedWithAnError($response);
-        //        }
+        try {
+            return $this->http->post('https://exp.host/--/api/v2/push/send', ['json' => $message->toArray()]);
+        } catch (RequestException $e) {
+            throw CouldNotSendNotification::serviceRespondedWithAnError($e);
+        }
     }
 }
